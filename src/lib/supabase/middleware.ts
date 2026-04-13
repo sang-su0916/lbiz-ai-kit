@@ -74,6 +74,7 @@ export async function updateSession(request: NextRequest) {
     "/join",
     "/auto-login",
     "/api/auto-login",
+    "/skills",
     ...guestPaths,
   ];
   const isPublicPath = publicPaths.some((p) =>
