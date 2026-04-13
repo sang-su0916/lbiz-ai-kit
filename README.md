@@ -18,23 +18,23 @@
 
 ## 스킬 구성 (6종)
 
-| 스킬 | 설명 | 계산 |
-|------|------|------|
-| **severance-pay** | 퇴직금 — 평균임금×재직년수, 중간정산 공제 | ✅ |
-| **annual-leave** | 연차수당 — 1년 미만/이상, 회계연도/입사일 분기 | ✅ |
-| **four-insurances** | 4대보험 — 2026년 요율, 사업주/근로자 분담 | ✅ |
-| **unemployment-benefit** | 실업급여 — 자격·금액·소정급여일수 | ✅ |
-| **wage-base** | 통상임금/평균임금 — 다른 계산의 베이스 | ✅ |
-| **labor-contract-review** | 근로계약서 검토 — 필수 명시사항 체크 | 매뉴얼 |
+| 스킬                      | 설명                                           | 계산   |
+| ------------------------- | ---------------------------------------------- | ------ |
+| **severance-pay**         | 퇴직금 — 평균임금×재직년수, 중간정산 공제      | ✅     |
+| **annual-leave**          | 연차수당 — 1년 미만/이상, 회계연도/입사일 분기 | ✅     |
+| **four-insurances**       | 4대보험 — 2026년 요율, 사업주/근로자 분담      | ✅     |
+| **unemployment-benefit**  | 실업급여 — 자격·금액·소정급여일수              | ✅     |
+| **wage-base**             | 통상임금/평균임금 — 다른 계산의 베이스         | ✅     |
+| **labor-contract-review** | 근로계약서 검토 — 필수 명시사항 체크           | 매뉴얼 |
 
 ## 기존 노무원큐와의 관계
 
-| 항목 | nomu-oneq (운영) | nomu-oneQ-skill.V (Lab) |
-|------|------------------|------------------------|
-| 도메인 | nomu-oneq.vercel.app | nomu-oneq-skill-v.vercel.app (예정) |
-| 분리 수준 | — | 별도 GitHub + 별도 Vercel + 별도 Supabase |
-| 스킬 | 없음 | `skills/` 디렉토리 6종 |
-| UI | 풀 SaaS | 동일 UI + `/skills` 카탈로그 페이지 추가 |
+| 항목      | nomu-oneq (운영)     | nomu-oneQ-skill.V (Lab)                   |
+| --------- | -------------------- | ----------------------------------------- |
+| 도메인    | nomu-oneq.vercel.app | nomu-oneq-skill-v.vercel.app (예정)       |
+| 분리 수준 | —                    | 별도 GitHub + 별도 Vercel + 별도 Supabase |
+| 스킬      | 없음                 | `skills/` 디렉토리 6종                    |
+| UI        | 풀 SaaS              | 동일 UI + `/skills` 카탈로그 페이지 추가  |
 
 ## 빠른 시작
 

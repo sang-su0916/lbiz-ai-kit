@@ -49,9 +49,7 @@ function LoginHandler() {
           .then(({ error: sessionError }) => {
             if (sessionError) {
               setProcessing(false);
-              setError(
-                "인증에 실패했습니다. 홈페이지에서 다시 시도해주세요.",
-              );
+              setError("인증에 실패했습니다. 홈페이지에서 다시 시도해주세요.");
               return;
             }
             window.history.replaceState(

@@ -87,6 +87,72 @@ SCENARIOS = [
         "assert": lambda r: r["eligible"] and r["prior_settlement"] == 20000000,
         "desc": "중간정산 공제 적용",
     },
+    # annual-leave
+    {
+        "id": "AL-01",
+        "skill": "annual-leave",
+        "args": ["entitlement", "--hire-date", "2020-04-13", "--base-date", "2026-04-13", "--base-type", "hire"],
+        "assert": lambda r: r.get("entitlement_days") == 17,
+        "desc": "5년 근속 → 17일 (15 + 가산 2)",
+    },
+    {
+        "id": "AL-02",
+        "skill": "annual-leave",
+        "args": ["entitlement", "--hire-date", "2001-04-13", "--base-date", "2026-04-13", "--base-type", "hire"],
+        "assert": lambda r: r.get("entitlement_days") == 25,
+        "desc": "25년 근속 → 25일 (한도)",
+    },
+    {
+        "id": "AL-03",
+        "skill": "annual-leave",
+        "args": ["unused-pay", "--daily-ordinary-wage", "100000", "--unused-days", "5"],
+        "assert": lambda r: r.get("unused_pay") == 500000,
+        "desc": "미사용수당: 일급 10만 × 5일 = 50만",
+    },
+    # four-insurances
+    {
+        "id": "FI-01",
+        "skill": "four-insurances",
+        "args": ["calculate", "--monthly-wage", "3000000", "--company-size", "under_150", "--industry-rate", "0.0143"],
+        "assert": lambda r: r["items"]["national_pension"]["employee"] == 135000,
+        "desc": "국민연금 근로자 분담 (300만 × 4.5% = 135,000)",
+    },
+    {
+        "id": "FI-02",
+        "skill": "four-insurances",
+        "args": ["calculate", "--monthly-wage", "7000000", "--company-size", "under_150", "--industry-rate", "0.0143"],
+        "assert": lambda r: r["items"]["national_pension"]["employee"] == 277650,
+        "desc": "상한 적용 (700만 → 6,170,000 × 4.5% = 277,650)",
+    },
+    # unemployment-benefit
+    {
+        "id": "UB-01",
+        "skill": "unemployment-benefit",
+        "args": [
+            "calculate", "--avg-daily-wage", "200000", "--insured-days", "1825",
+            "--insured-years", "5", "--age", "45", "--voluntary", "no", "--has-disability", "no",
+        ],
+        "assert": lambda r: r.get("eligible") and r.get("daily_benefit") == 66000,
+        "desc": "5년 가입, 평균임금 일20만 → 일액 66,000 (상한)",
+    },
+    {
+        "id": "UB-02",
+        "skill": "unemployment-benefit",
+        "args": [
+            "calculate", "--avg-daily-wage", "100000", "--insured-days", "100",
+            "--insured-years", "0", "--age", "30", "--voluntary", "no", "--has-disability", "no",
+        ],
+        "assert": lambda r: not r.get("eligible"),
+        "desc": "피보험단위기간 100일 → 자격 없음",
+    },
+    # wage-base
+    {
+        "id": "WB-01",
+        "skill": "wage-base",
+        "args": ["ordinary", "--base-wage", "3000000", "--base-type", "monthly"],
+        "assert": lambda r: r.get("hourly") in (14354, 14353) or 14350 <= r.get("hourly", 0) <= 14360,
+        "desc": "월 300만 통상임금 → 시급 약 14,354",
+    },
 ]
 
 
