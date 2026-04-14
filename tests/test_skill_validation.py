@@ -35,8 +35,8 @@ def check_frontmatter(skill_dir: Path) -> tuple[bool, str]:
     return True, ""
 
 
-def run_calculator(skill: str, args: list[str]) -> dict:
-    cli = SKILLS_DIR / skill / "references" / "calculator.py"
+def run_calculator(skill: str, args: list[str], cli_path: str = "references/calculator.py") -> dict:
+    cli = SKILLS_DIR / skill / cli_path
     proc = subprocess.run(
         ["python3", str(cli)] + args,
         capture_output=True, text=True, timeout=10,
@@ -198,6 +198,23 @@ SCENARIOS = [
         "assert": lambda r: r.get("grand_total") == 20640,
         "desc": "5인 미만 사업장 연장 2H → 가산 없음 원금만",
     },
+    # omsc (meta)
+    {
+        "id": "OMSC-01",
+        "skill": "omsc",
+        "args": ["--json", "list-templates"],
+        "_cli_path": "references/scaffold.py",
+        "assert": lambda r: "templates" in r and len(r.get("templates", [])) >= 2,
+        "desc": "omsc scaffold.py list-templates (json) — 최소 2개 템플릿 존재",
+    },
+    {
+        "id": "OMSC-02",
+        "skill": "omsc",
+        "args": ["--json", "new", "--name", "tmp-test-scaffold", "--domain", "테스트", "--law", "없음", "--dry-run"],
+        "_cli_path": "references/scaffold.py",
+        "assert": lambda r: r.get("dry_run") is True and r.get("name") == "tmp-test-scaffold",
+        "desc": "omsc scaffold.py new dry-run (json) — 실제 생성 없이 미리보기",
+    },
 ]
 
 
@@ -220,7 +237,7 @@ def main():
     print(f"\n[2] Scenario tests ({len(SCENARIOS)}):")
     for sc in SCENARIOS:
         try:
-            result = run_calculator(sc["skill"], sc["args"])
+            result = run_calculator(sc["skill"], sc["args"], sc.get("_cli_path", "references/calculator.py"))
             ok = sc["assert"](result)
         except Exception as e:
             ok = False

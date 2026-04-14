@@ -2,6 +2,22 @@
 
 const SKILLS = [
   {
+    id: "omsc",
+    emoji: "🏭",
+    title: "오 마이 스킬 슈퍼 크리에이터",
+    subtitle: "스킬을 만드는 메타 스킬",
+    description:
+      "세무·법무·노무·부동산 어떤 도메인이든 SKILL.md + calculator.py 패턴으로 새 스킬을 10분에 스캐폴딩합니다. 팩트체크 프로토콜 + scaffold.py CLI 내장.",
+    triggers: ["omsc", "스킬 만들기", "meta skill", "skill creator"],
+    triggerExample: "세무 종합소득세 스킬 하나 만들어줘",
+    resultExample:
+      "skills/income-tax/ 자동 생성 → SKILL.md · calculator.py 템플릿 채움 · 검증 4건 추가",
+    source:
+      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/omsc",
+    accentColor: "#fae8ff",
+    accentText: "#581c87",
+  },
+  {
     id: "severance-pay",
     emoji: "💼",
     title: "퇴직금 계산",
@@ -558,7 +574,7 @@ export default function SkillsPage() {
             <p>
               한국 노무 도메인의 계산·판정·검토 작업을
               <br />
-              Claude가 정확하게 수행하도록 훈련된 9개 스킬 모음입니다.
+              Claude가 정확하게 수행하도록 훈련된 10개 스킬 모음입니다.
             </p>
           </div>
         </section>
@@ -616,7 +632,9 @@ export default function SkillsPage() {
 
         {/* Skill Cards */}
         <section className="skills-grid-section">
-          <h2 className="skills-grid-title">9개 스킬 카탈로그</h2>
+          <h2 className="skills-grid-title">
+            10개 스킬 카탈로그 (메타 1 + 계산 9)
+          </h2>
           <p className="skills-grid-subtitle">
             키워드를 포함한 질문을 입력하면 해당 스킬이 자동으로 활성화됩니다.
           </p>

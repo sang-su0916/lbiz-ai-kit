@@ -1,0 +1,10 @@
+{
+  "active": true,
+  "started_at": "2026-04-13T15:15:48.572Z",
+  "original_prompt": "옵션2로 가는데 2026년 최저임금은 10,320원이야. 지금까지 계속 해온 작업이기도 하고, 팩트체크가 제일 중요한데, 시작부터 틀리면 안돼지. ulw",
+  "session_id": "de9b3001-3ecd-40a6-a742-4723f53377ec",
+  "project_path": "/Users/isangsu/nomu-oneQ-skill.V",
+  "reinforcement_count": 1,
+  "awaiting_confirmation": true,
+  "last_checked_at": "2026-04-13T15:19:12.057Z"
+}

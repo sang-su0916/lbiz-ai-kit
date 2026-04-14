@@ -1,7 +1,7 @@
 {
   "tool_name": "Read",
-  "tool_input_preview": "{\"file_path\":\"/Users/isangsu/nomu-oneQ-skill.V/src/components/Navigation.tsx\"}",
-  "error": "File content (11916 tokens) exceeds maximum allowed tokens (10000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.",
-  "timestamp": "2026-04-13T07:29:29.938Z",
-  "retry_count": 1
+  "tool_input_preview": "{\"file_path\":\"/Users/isangsu/nomu-oneQ-skill.V/skills/overtime-pay\"}",
+  "error": "EISDIR: illegal operation on a directory, read '/Users/isangsu/nomu-oneQ-skill.V/skills/overtime-pay'",
+  "timestamp": "2026-04-14T00:19:54.103Z",
+  "retry_count": 3
 }

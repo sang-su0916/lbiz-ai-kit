@@ -12,6 +12,12 @@
 
 ## 스킬 목록
 
+### 🏭 메타 스킬 (스킬을 만드는 스킬)
+
+| 스킬     | 설명                                                                              | 트리거 키워드                                |
+| -------- | --------------------------------------------------------------------------------- | -------------------------------------------- |
+| **omsc** | Oh My Skill Super Creator — 세무·법무·노무·부동산 도메인 스킬을 템플릿으로 찍어냄 | omsc, 스킬 만들기, skill creator, meta skill |
+
 ### 계산 스킬 (Python CLI)
 
 | 스킬                     | 설명                                                            | 트리거 키워드                      |
@@ -59,8 +65,11 @@ skills/
 ├── overtime-pay/
 │   ├── SKILL.md
 │   └── references/calculator.py
-└── labor-contract-review/
-    └── SKILL.md
+├── labor-contract-review/
+│   └── SKILL.md
+└── omsc/
+    ├── SKILL.md
+    └── references/scaffold.py
 ```
 
 ## 도메인 컨텍스트
