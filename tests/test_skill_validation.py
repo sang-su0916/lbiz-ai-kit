@@ -560,6 +560,40 @@ SCENARIOS = [
         ),
         "desc": "추세 5개년: 기준 100, 종료 125, CAGR 5.74%",
     },
+    # corporate-tax-interim-payment (세무)
+    {
+        "id": "CIP-01",
+        "skill": "corporate-tax-interim-payment",
+        "args": ["standard", "--prior-tax", "50000000", "--prior-months", "12", "--current-period-months", "6"],
+        "assert": lambda r: r["interim_payment"] == 25000000,
+        "desc": "standard 직전세액 5천만·12/6월 → 25,000,000",
+    },
+    {
+        "id": "CIP-02",
+        "skill": "corporate-tax-interim-payment",
+        "args": ["standard", "--prior-tax", "100000000", "--prior-credits", "20000000",
+                 "--prior-months", "12", "--current-period-months", "6"],
+        "assert": lambda r: r["interim_payment"] == 40000000,
+        "desc": "standard 직전세액 1억·공제 2천만·12/6월 → (100M-20M)×0.5 = 40,000,000",
+    },
+    {
+        "id": "CIP-03",
+        "skill": "corporate-tax-interim-payment",
+        "args": ["estimation", "--interim-taxable-income", "150000000", "--current-period-months", "6"],
+        "assert": lambda r: (
+            r["annualized_taxable"] == 300000000
+            and r["annualized_tax"] == 37000000
+            and r["interim_payment"] == 18500000
+        ),
+        "desc": "estimation 중간과세표준 1.5억·6월 → 연환산 3억, 산출세액 3700만, 납부 1850만",
+    },
+    {
+        "id": "CIP-04",
+        "skill": "corporate-tax-interim-payment",
+        "args": ["exemption-check", "--prior-tax", "0"],
+        "assert": lambda r: r["exempt"] is True,
+        "desc": "exemption-check prior_tax=0 → exempt true",
+    },
 ]
 
 

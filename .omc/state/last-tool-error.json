@@ -1,7 +1,7 @@
 {
   "tool_name": "Read",
   "tool_input_preview": "{\"file_path\":\"/Users/isangsu/lbiz-ai-kit/src/app/skills/page.tsx\"}",
-  "error": "File content (12601 tokens) exceeds maximum allowed tokens (10000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.",
-  "timestamp": "2026-04-14T04:30:21.423Z",
+  "error": "File content (12968 tokens) exceeds maximum allowed tokens (10000). Use offset and limit parameters to read specific portions of the file, or search for specific content instead of reading the whole file.",
+  "timestamp": "2026-04-14T05:00:48.716Z",
   "retry_count": 1
 }

@@ -33,6 +33,22 @@ const SKILLS = [
     accentText: "#9a3412",
   },
   {
+    id: "corporate-tax-interim-payment",
+    emoji: "🏦",
+    title: "법인세 중간예납",
+    subtitle: "기준·가결산 방식 비교",
+    description:
+      "법인세법 §63 기준 2가지 방식(직전년 기준/가결산) 계산 + 비교 + 면제 대상 판정. 12월 결산법인 8월 31일 납부 대비.",
+    triggers: ["법인세중간예납", "중간예납", "§63", "가결산 방식", "8월 신고"],
+    triggerExample: "직전년 산출세액 5천만원이면 중간예납 얼마?",
+    resultExample:
+      "방법1 기준 2,500만원 납부. 가결산과 비교 시 어느 쪽이 유리한지 병렬 비교",
+    source:
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/corporate-tax-interim-payment",
+    accentColor: "#fef3c7",
+    accentText: "#78350f",
+  },
+  {
     id: "severance-pay",
     emoji: "💼",
     title: "퇴직금 계산",
@@ -742,7 +758,7 @@ export default function SkillsPage() {
             <p>
               한국 비즈니스 도메인(노무·세무·법무·경영)의 계산·판정·검토를
               <br />
-              Claude가 정확하게 수행하도록 훈련된 19개 스킬 모음입니다.
+              Claude가 정확하게 수행하도록 훈련된 20개 스킬 모음입니다.
             </p>
           </div>
         </section>
@@ -801,7 +817,7 @@ export default function SkillsPage() {
         {/* Skill Cards */}
         <section className="skills-grid-section">
           <h2 className="skills-grid-title">
-            19개 스킬 카탈로그 (메타 1 · 노무 9 · 세무 1 · 법무 1 · 경영 7)
+            20개 스킬 카탈로그 (메타 1 · 노무 9 · 세무 2 · 법무 1 · 경영 7)
           </h2>
           <p className="skills-grid-subtitle">
             키워드를 포함한 질문을 입력하면 해당 스킬이 자동으로 활성화됩니다.
