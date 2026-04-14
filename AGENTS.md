@@ -44,14 +44,16 @@
 
 OMSC로 추가 예정: 상속세, 취득세, 등록세, 공증료, 임대보증금 반환, 상속분 산정.
 
-## 📈 경영 스킬 (4)
+## 📈 경영 스킬 (6)
 
-| 스킬                    | 설명                                                                            | 트리거                                    |
-| ----------------------- | ------------------------------------------------------------------------------- | ----------------------------------------- |
-| **financial-ratio**     | 재무비율 분석 (유동·안정·수익·활동성 20+ 지표)                                  | 재무비율, 유동비율, 부채비율, ROE, ROA    |
-| **depreciation**        | 감가상각 (정액법·정률법·생산량비례법·기준내용연수)                              | 감가상각, 정액법, 정률법, 내용연수        |
-| **break-even**          | 손익분기점 (BEP 수량·매출·안전한계·영업레버리지)                                | 손익분기점, BEP, 고정비, 변동비, 안전한계 |
-| **financial-diagnosis** | 재무진단 종합 (financial-ratio + depreciation + break-even 통합 + S~D 스코어링) | 재무진단, 재무건전성, 재무등급, 종합진단  |
+| 스킬                          | 설명                                                                            | 트리거                                          |
+| ----------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------- |
+| **financial-ratio**           | 재무비율 분석 (유동·안정·수익·활동성 20+ 지표)                                  | 재무비율, 유동비율, 부채비율, ROE, ROA          |
+| **depreciation**              | 감가상각 (정액법·정률법·생산량비례법·기준내용연수)                              | 감가상각, 정액법, 정률법, 내용연수              |
+| **break-even**                | 손익분기점 (BEP 수량·매출·안전한계·영업레버리지)                                | 손익분기점, BEP, 고정비, 변동비, 안전한계       |
+| **financial-diagnosis**       | 재무진단 종합 (financial-ratio + depreciation + break-even 통합 + S~D 스코어링) | 재무진단, 재무건전성, 재무등급, 종합진단        |
+| **financial-statement-trend** | 재무제표 수평·수직·추세 분석 (전년대비 증감·구성비·5개년 CAGR)                  | 재무제표분석, 수평분석, 수직분석, 추세, CAGR    |
+| **cash-flow-analysis**        | 현금흐름표 8패턴 분류 + FCF + OCF 품질지표 (분식 징후 진단 포함)                | 현금흐름, 현금흐름표, 영업CF, FCF, 잉여현금흐름 |
 
 ## 디렉토리 구조
 
@@ -100,8 +102,14 @@ skills/
 ├── break-even/
 │   ├── SKILL.md
 │   └── references/calculator.py
-└── financial-diagnosis/
-    └── SKILL.md
+├── financial-diagnosis/
+│   └── SKILL.md
+├── financial-statement-trend/
+│   ├── SKILL.md
+│   └── references/calculator.py
+└── cash-flow-analysis/
+    ├── SKILL.md
+    └── references/calculator.py
 ```
 
 ## 도메인 컨텍스트

@@ -410,6 +410,106 @@ SCENARIOS = [
         "assert": lambda r: any("한계기업" in f for f in r.get("risk_flags", [])),
         "desc": "이자보상배율 1배 미만 → risk_flags에 '한계기업' 포함",
     },
+    # cash-flow-analysis (경영 — 현금흐름표)
+    {
+        "id": "CFA-01",
+        "skill": "cash-flow-analysis",
+        "args": [
+            "analyze",
+            "--operating-cf", "80000000",
+            "--investing-cf", "-50000000",
+            "--financing-cf", "-20000000",
+        ],
+        "assert": lambda r: r["cf_pattern"].startswith("안정"),
+        "desc": "OCF +8천만/IFCF -5천만/FCF -2천만 → 안정형",
+    },
+    {
+        "id": "CFA-02",
+        "skill": "cash-flow-analysis",
+        "args": [
+            "analyze",
+            "--operating-cf", "-30000000",
+            "--investing-cf", "20000000",
+            "--financing-cf", "10000000",
+        ],
+        "assert": lambda r: r["cf_pattern"].startswith("심각"),
+        "desc": "OCF -3천만/IFCF +2천만/FCF +1천만 → 심각형",
+    },
+    {
+        "id": "CFA-03",
+        "skill": "cash-flow-analysis",
+        "args": [
+            "analyze",
+            "--operating-cf", "100000000",
+            "--investing-cf", "-10000000",
+            "--financing-cf", "-10000000",
+            "--net-income", "80000000",
+        ],
+        "assert": lambda r: r["quality_indicators"]["ocf_to_net_income_ratio"] == 1.25,
+        "desc": "OCF 1억/순이익 8천만 → ocf_to_net_income_ratio = 1.25",
+    },
+    {
+        "id": "CFA-04",
+        "skill": "cash-flow-analysis",
+        "args": [
+            "analyze",
+            "--operating-cf", "50000000",
+            "--investing-cf", "-20000000",
+            "--financing-cf", "0",
+            "--capex", "20000000",
+        ],
+        "assert": lambda r: r["free_cash_flow"] == 30000000,
+        "desc": "OCF 5천만 - CapEx 2천만 → FCF 3천만",
+    },
+    # financial-statement-trend (경영 — 수평·수직·추세)
+    {
+        "id": "FST-01",
+        "skill": "financial-statement-trend",
+        "args": [
+            "horizontal",
+            "--revenue-current", "500000000", "--revenue-prior", "450000000",
+        ],
+        "assert": lambda r: r["items"]["revenue"]["change_rate"] == 11.11,
+        "desc": "수평: 매출 5억/4.5억 → change_rate 11.11%",
+    },
+    {
+        "id": "FST-02",
+        "skill": "financial-statement-trend",
+        "args": [
+            "vertical", "--statement", "is",
+            "--revenue", "500000000", "--cogs", "325000000",
+        ],
+        "assert": lambda r: r["ratios"]["cogs_ratio"] == 65.00,
+        "desc": "수직: 매출 5억·원가 3.25억 → cogs_ratio 65.00%",
+    },
+    {
+        "id": "FST-03",
+        "skill": "financial-statement-trend",
+        "args": [
+            "trend",
+            "--years", "2025,2026",
+            "--values", "100000000,121000000",
+            "--label", "매출",
+        ],
+        "assert": lambda r: r["cagr"] == 21.00,
+        "desc": "추세: 1억→1.21억 2년 → CAGR 21.00%",
+    },
+    {
+        "id": "FST-04",
+        "skill": "financial-statement-trend",
+        "args": [
+            "trend",
+            "--years", "2022,2023,2024,2025,2026",
+            "--values", "400000000,420000000,450000000,480000000,500000000",
+            "--label", "매출",
+        ],
+        "assert": lambda r: (
+            r["index"][0] == 100.00
+            and r["index"][-1] == 125.00
+            and r["cagr"] == 5.74
+        ),
+        "desc": "추세 5개년: 기준 100, 종료 125, CAGR 5.74%",
+    },
 ]
 
 

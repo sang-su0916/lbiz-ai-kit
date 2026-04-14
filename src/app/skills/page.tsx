@@ -248,6 +248,52 @@ const SKILLS = [
     accentText: "#713f12",
   },
   {
+    id: "financial-statement-trend",
+    emoji: "📊",
+    title: "재무제표 추세 분석",
+    subtitle: "수평·수직·추세 3각 분석",
+    description:
+      "전년 대비 증감·손익계산서 구성비·5개년 CAGR — 재무제표를 다각도로 뜯어봅니다.",
+    triggers: [
+      "재무제표분석",
+      "수평분석",
+      "수직분석",
+      "추세",
+      "CAGR",
+      "전년대비",
+    ],
+    triggerExample: "당사 매출 5년 추이: 4억→4.2→4.5→4.8→5억. 분석해줘",
+    resultExample: "CAGR 5.74%, 5년간 25% 성장. 기준연도 2022=100, 2026=125",
+    source:
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/financial-statement-trend",
+    accentColor: "#ecfeff",
+    accentText: "#164e63",
+  },
+  {
+    id: "cash-flow-analysis",
+    emoji: "💵",
+    title: "현금흐름표 분석",
+    subtitle: "8패턴 분류 + 품질지표",
+    description:
+      "영업·투자·재무 CF 부호 조합으로 기업 상태 8패턴 진단. FCF와 OCF 품질지표로 분식 징후까지.",
+    triggers: [
+      "현금흐름",
+      "현금흐름표",
+      "영업CF",
+      "FCF",
+      "잉여현금흐름",
+      "cash flow",
+    ],
+    triggerExample:
+      "영업CF +8천만, 투자 -5천만, 재무 -2천만이면 우리 회사 어떤 상태?",
+    resultExample:
+      "안정형 (성숙기 우량기업) — 영업이익으로 투자·배당/차입 상환. FCF 3천만",
+    source:
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/cash-flow-analysis",
+    accentColor: "#f0fdfa",
+    accentText: "#134e4a",
+  },
+  {
     id: "financial-diagnosis",
     emoji: "🏥",
     title: "재무진단 종합",
@@ -672,7 +718,7 @@ export default function SkillsPage() {
             <p>
               한국 비즈니스 도메인(노무·세무·법무·경영)의 계산·판정·검토를
               <br />
-              Claude가 정확하게 수행하도록 훈련된 16개 스킬 모음입니다.
+              Claude가 정확하게 수행하도록 훈련된 18개 스킬 모음입니다.
             </p>
           </div>
         </section>
@@ -731,7 +777,7 @@ export default function SkillsPage() {
         {/* Skill Cards */}
         <section className="skills-grid-section">
           <h2 className="skills-grid-title">
-            16개 스킬 카탈로그 (메타 1 · 노무 9 · 세무 1 · 법무 1 · 경영 4)
+            18개 스킬 카탈로그 (메타 1 · 노무 9 · 세무 1 · 법무 1 · 경영 6)
           </h2>
           <p className="skills-grid-subtitle">
             키워드를 포함한 질문을 입력하면 해당 스킬이 자동으로 활성화됩니다.
