@@ -103,6 +103,53 @@ const SKILLS = [
     accentColor: "#f0fdf4",
     accentText: "#166534",
   },
+  {
+    id: "minimum-wage",
+    emoji: "💰",
+    title: "최저임금 위반 체크",
+    subtitle: "2026년 시급 10,320원 기준",
+    description:
+      "월급·주간근로시간을 입력하면 시간당 실임금을 산출하고 최저임금 위반 여부를 판정합니다. 정기상여·복리후생비 산입범위 적용, 단시간근로자 비례 계산을 지원합니다.",
+    triggers: ["최저임금", "시급", "위반", "체불"],
+    triggerExample: "월 200만원 받는데 최저임금 미달인가?",
+    resultExample:
+      "시간당 9,569원 → 최저임금 10,320원 미달 / 시간당 751원 부족 · 월 156,959원 미달",
+    source:
+      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/minimum-wage",
+    accentColor: "#fef9c3",
+    accentText: "#854d0e",
+  },
+  {
+    id: "weekly-holiday-pay",
+    emoji: "🗓️",
+    title: "주휴수당 계산",
+    subtitle: "주 15H 이상 + 개근",
+    description:
+      "주 소정근로시간과 개근 여부로 주휴수당 발생 요건을 판정하고, 통상시급 기반 금액을 산출합니다. 단시간 근로자(주 15~39H) 비례 계산 및 월 환산도 지원합니다.",
+    triggers: ["주휴", "주휴수당", "개근"],
+    triggerExample: "주 20시간 파트타이머 주휴수당은?",
+    resultExample:
+      "주 41,280원 / 월 환산 179,362원 (비례: 20H÷40H×8H×10,320원)",
+    source:
+      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/weekly-holiday-pay",
+    accentColor: "#dcfce7",
+    accentText: "#14532d",
+  },
+  {
+    id: "overtime-pay",
+    emoji: "⏰",
+    title: "가산수당 계산",
+    subtitle: "연장·야간·휴일 50%/100%",
+    description:
+      "연장·야간·휴일 근로 유형별 가산수당을 산출합니다. 야간(22~06시) 중복 가산, 휴일 8시간 초과 100% 가산, 5인 미만 사업장 제외 처리를 모두 지원합니다.",
+    triggers: ["연장근로", "야간", "휴일근로", "가산수당"],
+    triggerExample: "시급 10,320원으로 연장 2H + 야간 2H 겹침",
+    resultExample: "기본 20,640 + 연장가산 10,320 + 야간가산 10,320 = 41,280원",
+    source:
+      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/overtime-pay",
+    accentColor: "#fee2e2",
+    accentText: "#7f1d1d",
+  },
 ];
 
 export default function SkillsPage() {
@@ -511,7 +558,7 @@ export default function SkillsPage() {
             <p>
               한국 노무 도메인의 계산·판정·검토 작업을
               <br />
-              Claude가 정확하게 수행하도록 훈련된 6개 스킬 모음입니다.
+              Claude가 정확하게 수행하도록 훈련된 9개 스킬 모음입니다.
             </p>
           </div>
         </section>
@@ -569,7 +616,7 @@ export default function SkillsPage() {
 
         {/* Skill Cards */}
         <section className="skills-grid-section">
-          <h2 className="skills-grid-title">6개 스킬 카탈로그</h2>
+          <h2 className="skills-grid-title">9개 스킬 카탈로그</h2>
           <p className="skills-grid-subtitle">
             키워드를 포함한 질문을 입력하면 해당 스킬이 자동으로 활성화됩니다.
           </p>

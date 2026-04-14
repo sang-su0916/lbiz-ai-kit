@@ -153,6 +153,51 @@ SCENARIOS = [
         "assert": lambda r: r.get("hourly") in (14354, 14353) or 14350 <= r.get("hourly", 0) <= 14360,
         "desc": "월 300만 통상임금 → 시급 약 14,354",
     },
+    # minimum-wage
+    {
+        "id": "MW-01",
+        "skill": "minimum-wage",
+        "args": ["check", "--monthly-wage", "2000000", "--weekly-hours", "40"],
+        "assert": lambda r: r.get("violation") is True and r.get("hourly_rate_actual") == 9569,
+        "desc": "월 200만/40H → 시급 9,569 위반",
+    },
+    {
+        "id": "MW-02",
+        "skill": "minimum-wage",
+        "args": ["check", "--monthly-wage", "2156880", "--weekly-hours", "40"],
+        "assert": lambda r: r.get("violation") is False,
+        "desc": "월 2,156,880 = 시급 10,320 정확히 최저임금",
+    },
+    # weekly-holiday-pay
+    {
+        "id": "WH-01",
+        "skill": "weekly-holiday-pay",
+        "args": ["calculate", "--weekly-hours", "40", "--hourly-wage", "10320", "--worked-all-days"],
+        "assert": lambda r: r.get("amount") == 82560,
+        "desc": "주 40H/시급 10,320/개근 → 주휴수당 82,560",
+    },
+    {
+        "id": "WH-02",
+        "skill": "weekly-holiday-pay",
+        "args": ["calculate", "--weekly-hours", "14", "--hourly-wage", "10320", "--worked-all-days"],
+        "assert": lambda r: not r.get("eligible"),
+        "desc": "주 14H → 15H 미만 미발생",
+    },
+    # overtime-pay
+    {
+        "id": "OT-01",
+        "skill": "overtime-pay",
+        "args": ["calculate", "--hourly-wage", "10320", "--overtime-hours", "2", "--company-size-ge-5"],
+        "assert": lambda r: r.get("grand_total") == 30960,
+        "desc": "시급 10,320 연장 2H → 기본 20,640 + 가산 10,320 = 30,960",
+    },
+    {
+        "id": "OT-02",
+        "skill": "overtime-pay",
+        "args": ["calculate", "--hourly-wage", "10320", "--overtime-hours", "2", "--no-company-size-ge-5"],
+        "assert": lambda r: r.get("grand_total") == 20640,
+        "desc": "5인 미만 사업장 연장 2H → 가산 없음 원금만",
+    },
 ]
 
 
