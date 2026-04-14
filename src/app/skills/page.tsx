@@ -18,6 +18,22 @@ const SKILLS = [
     accentText: "#581c87",
   },
   {
+    id: "income-tax",
+    emoji: "🏛",
+    title: "종합소득세 계산",
+    subtitle: "8단계 누진세율 + 지방소득세",
+    description:
+      "과세표준을 입력하면 소득세법 §55 세율표 기준 산출세액과 지방소득세(10%)를 계산합니다. 누진공제 자동 적용 + 한계세율·실효세율 표시.",
+    triggers: ["종합소득세", "소득세", "세율", "과세표준"],
+    triggerExample: "과세표준 5천만원이면 종합소득세 얼마?",
+    resultExample:
+      "산출세액 624만원 + 지방소득세 62.4만원 = 686.4만원 (한계세율 15%, 실효 12.48%)",
+    source:
+      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/income-tax",
+    accentColor: "#ffedd5",
+    accentText: "#9a3412",
+  },
+  {
     id: "severance-pay",
     emoji: "💼",
     title: "퇴직금 계산",
@@ -574,7 +590,7 @@ export default function SkillsPage() {
             <p>
               한국 노무 도메인의 계산·판정·검토 작업을
               <br />
-              Claude가 정확하게 수행하도록 훈련된 10개 스킬 모음입니다.
+              Claude가 정확하게 수행하도록 훈련된 11개 스킬 모음입니다.
             </p>
           </div>
         </section>
@@ -633,7 +649,7 @@ export default function SkillsPage() {
         {/* Skill Cards */}
         <section className="skills-grid-section">
           <h2 className="skills-grid-title">
-            10개 스킬 카탈로그 (메타 1 + 계산 9)
+            11개 스킬 카탈로그 (메타 1 + 계산 10)
           </h2>
           <p className="skills-grid-subtitle">
             키워드를 포함한 질문을 입력하면 해당 스킬이 자동으로 활성화됩니다.

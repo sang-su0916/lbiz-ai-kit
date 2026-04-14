@@ -215,6 +215,49 @@ SCENARIOS = [
         "assert": lambda r: r.get("dry_run") is True and r.get("name") == "tmp-test-scaffold",
         "desc": "omsc scaffold.py new dry-run (json) — 실제 생성 없이 미리보기",
     },
+    # income-tax (세무)
+    {
+        "id": "IT-01",
+        "skill": "income-tax",
+        "args": ["calculate", "--taxable-income", "10000000"],
+        "assert": lambda r: r["national_income_tax"] == 600000,
+        "desc": "과표 1천만 (구간1 6%) → 60만",
+    },
+    {
+        "id": "IT-02",
+        "skill": "income-tax",
+        "args": ["calculate", "--taxable-income", "30000000"],
+        "assert": lambda r: r["national_income_tax"] == 3240000,
+        "desc": "과표 3천만 → 3천만×15% - 126만 = 324만",
+    },
+    {
+        "id": "IT-03",
+        "skill": "income-tax",
+        "args": ["calculate", "--taxable-income", "50000000"],
+        "assert": lambda r: r["national_income_tax"] == 6240000,
+        "desc": "과표 5천만 (구간2 끝) → 5천만×15% - 126만 = 624만",
+    },
+    {
+        "id": "IT-04",
+        "skill": "income-tax",
+        "args": ["calculate", "--taxable-income", "100000000"],
+        "assert": lambda r: r["national_income_tax"] == 19560000,
+        "desc": "과표 1억 (구간4 35%) → 1억×35% - 1544만 = 1,956만",
+    },
+    {
+        "id": "IT-05",
+        "skill": "income-tax",
+        "args": ["calculate", "--taxable-income", "1500000000"],
+        "assert": lambda r: r["national_income_tax"] == 609060000,
+        "desc": "과표 15억 (최고구간 45%) → 15억×45% - 6594만 = 6억 906만",
+    },
+    {
+        "id": "IT-06",
+        "skill": "income-tax",
+        "args": ["effective-rate", "--taxable-income", "50000000"],
+        "assert": lambda r: r["marginal_rate_pct"] == 15 and 12 < r["national_effective_rate_pct"] < 13,
+        "desc": "과표 5천만 실효세율 약 12.48%",
+    },
 ]
 
 
