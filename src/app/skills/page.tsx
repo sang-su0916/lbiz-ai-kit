@@ -49,6 +49,27 @@ const SKILLS = [
     accentText: "#78350f",
   },
   {
+    id: "value-added-tax",
+    emoji: "🧾",
+    title: "부가가치세",
+    subtitle: "일반·간이·적격 판정·비교",
+    description:
+      "부가세 §30·§61·§63·§69 기준 일반과세·간이과세(업종별 5단계 부가가치율) 계산 + 간이 적격 판정 + 두 방식 비교. 4,800만 납부면제·1억 400만 간이기준 반영.",
+    triggers: [
+      "부가세",
+      "부가가치세",
+      "간이과세",
+      "일반과세",
+      "VAT",
+      "매입세액",
+    ],
+    triggerExample: "월 매출 1억, 매입 6천만 원인데 부가세 납부세액은?",
+    resultExample: "일반과세 매출세액 1천만 - 매입세액 6백만 = 납부세액 4백만",
+    source: "부가가치세법 §30·§61·§63·§69",
+    accentColor: "#fffbeb",
+    accentText: "#713f12",
+  },
+  {
     id: "severance-pay",
     emoji: "💼",
     title: "퇴직금 계산",
@@ -817,7 +838,7 @@ export default function SkillsPage() {
         {/* Skill Cards */}
         <section className="skills-grid-section">
           <h2 className="skills-grid-title">
-            20개 스킬 카탈로그 (메타 1 · 노무 9 · 세무 2 · 법무 1 · 경영 7)
+            21개 스킬 카탈로그 (메타 1 · 노무 9 · 세무 3 · 법무 1 · 경영 7)
           </h2>
           <p className="skills-grid-subtitle">
             키워드를 포함한 질문을 입력하면 해당 스킬이 자동으로 활성화됩니다.

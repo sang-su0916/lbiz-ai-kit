@@ -594,6 +594,35 @@ SCENARIOS = [
         "assert": lambda r: r["exempt"] is True,
         "desc": "exemption-check prior_tax=0 → exempt true",
     },
+    # value-added-tax (세무)
+    {
+        "id": "VAT-01",
+        "skill": "value-added-tax",
+        "args": ["general", "--sales-supply", "100000000", "--purchase-supply", "60000000"],
+        "assert": lambda r: r["payable_vat"] == 4000000,
+        "desc": "general 매출 1억·매입 6천만 → 납부세액 4,000,000 (1000만-600만)",
+    },
+    {
+        "id": "VAT-02",
+        "skill": "value-added-tax",
+        "args": ["simplified", "--supply-price", "80000000", "--industry", "retail"],
+        "assert": lambda r: r["payable_vat"] == 1200000 and r["exempt_from_payment"] is False,
+        "desc": "simplified 소매업·공급대가 8천만 → 8천만×15%×10% = 1,200,000",
+    },
+    {
+        "id": "VAT-03",
+        "skill": "value-added-tax",
+        "args": ["simplified", "--supply-price", "45000000", "--industry", "service"],
+        "assert": lambda r: r["exempt_from_payment"] is True and r["payable_vat"] == 0,
+        "desc": "simplified 공급대가 4,500만 (<4,800만) → §69 납부의무 면제",
+    },
+    {
+        "id": "VAT-04",
+        "skill": "value-added-tax",
+        "args": ["eligibility", "--prior-year-supply-price", "150000000"],
+        "assert": lambda r: r["eligible"] is False and any("1억 400만원" in x for x in r["reasons"]),
+        "desc": "eligibility 직전연도 1.5억·개인 → 부적격 (1억 400만원 초과)",
+    },
 ]
 
 
