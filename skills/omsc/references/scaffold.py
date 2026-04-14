@@ -31,7 +31,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 TEMPLATES_DIR = SCRIPT_DIR / "templates"
-DEFAULT_PARENT_DIR = Path("/Users/isangsu/nomu-oneQ-skill.V/skills/")
+DEFAULT_PARENT_DIR = Path("/Users/isangsu/lbiz-ai-kit/skills/")
 
 CALC_MODES = ["amount", "eligibility", "comparison", "breakdown", "checklist", "limit"]
 

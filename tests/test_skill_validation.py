@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""nomu-oneQ-skill.V — Skill Validation Test
+"""lbiz-ai-kit — Skill Validation Test
 
 검증 항목:
   1. SKILL.md frontmatter (name/description/when_to_use)
@@ -262,7 +262,7 @@ SCENARIOS = [
 
 
 def main():
-    print(f"\n{'='*60}\nnomu-oneQ-skill.V — Skill Validation\n{'='*60}\n")
+    print(f"\n{'='*60}\nlbiz-ai-kit — Skill Validation\n{'='*60}\n")
     pass_count = fail_count = 0
 
     print("[1] Frontmatter checks:")

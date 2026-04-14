@@ -12,8 +12,7 @@ const SKILLS = [
     triggerExample: "세무 종합소득세 스킬 하나 만들어줘",
     resultExample:
       "skills/income-tax/ 자동 생성 → SKILL.md · calculator.py 템플릿 채움 · 검증 4건 추가",
-    source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/omsc",
+    source: "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/omsc",
     accentColor: "#fae8ff",
     accentText: "#581c87",
   },
@@ -29,7 +28,7 @@ const SKILLS = [
     resultExample:
       "산출세액 624만원 + 지방소득세 62.4만원 = 686.4만원 (한계세율 15%, 실효 12.48%)",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/income-tax",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/income-tax",
     accentColor: "#ffedd5",
     accentText: "#9a3412",
   },
@@ -46,7 +45,7 @@ const SKILLS = [
     resultExample:
       "평균임금 92,308원 × 30일 × 재직연수 5.08년 → 퇴직금 약 14,065,200원 (원 단위 절사)",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/severance-pay",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/severance-pay",
     accentColor: "#dbeafe",
     accentText: "#1d4ed8",
   },
@@ -63,7 +62,7 @@ const SKILLS = [
     resultExample:
       "회계연도 기준 2025년 발생 15일, 2026년 발생 10일(비례) — 미사용 5일 × 통상임금 = 수당 약 500,000원",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/annual-leave",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/annual-leave",
     accentColor: "#d1fae5",
     accentText: "#065f46",
   },
@@ -80,7 +79,7 @@ const SKILLS = [
     resultExample:
       "근로자: 국민연금 144,000원 + 건강보험 113,490원 + 고용보험 25,600원 = 합계 283,090원",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/four-insurances",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/four-insurances",
     accentColor: "#fef3c7",
     accentText: "#92400e",
   },
@@ -97,7 +96,7 @@ const SKILLS = [
     resultExample:
       "구직급여 일액 60,350원 (상한 66,000원 미만) × 소정급여일수 180일 = 총 10,863,000원",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/unemployment-benefit",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/unemployment-benefit",
     accentColor: "#ede9fe",
     accentText: "#4c1d95",
   },
@@ -114,7 +113,7 @@ const SKILLS = [
     resultExample:
       "통상임금: 기본급 230만원 + 직책수당 20만원 = 250만원 (식대 비과세·상여금 비정기 제외) → 시급 11,905원",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/wage-base",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/wage-base",
     accentColor: "#fee2e2",
     accentText: "#991b1b",
   },
@@ -131,7 +130,7 @@ const SKILLS = [
     resultExample:
       "✅ 임금·소정근로시간·휴일·연차 명시 확인 / ⚠️ 취업 장소·종사 업무 기재 미흡 / ❌ 근로계약서 교부 문구 누락",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/labor-contract-review",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/labor-contract-review",
     accentColor: "#f0fdf4",
     accentText: "#166534",
   },
@@ -147,7 +146,7 @@ const SKILLS = [
     resultExample:
       "시간당 9,569원 → 최저임금 10,320원 미달 / 시간당 751원 부족 · 월 156,959원 미달",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/minimum-wage",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/minimum-wage",
     accentColor: "#fef9c3",
     accentText: "#854d0e",
   },
@@ -163,7 +162,7 @@ const SKILLS = [
     resultExample:
       "주 41,280원 / 월 환산 179,362원 (비례: 20H÷40H×8H×10,320원)",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/weekly-holiday-pay",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/weekly-holiday-pay",
     accentColor: "#dcfce7",
     accentText: "#14532d",
   },
@@ -178,7 +177,7 @@ const SKILLS = [
     triggerExample: "시급 10,320원으로 연장 2H + 야간 2H 겹침",
     resultExample: "기본 20,640 + 연장가산 10,320 + 야간가산 10,320 = 41,280원",
     source:
-      "https://github.com/sang-su0916/nomu-oneQ-skill.V/tree/main/skills/overtime-pay",
+      "https://github.com/sang-su0916/lbiz-ai-kit/tree/main/skills/overtime-pay",
     accentColor: "#fee2e2",
     accentText: "#7f1d1d",
   },
@@ -584,11 +583,11 @@ export default function SkillsPage() {
         <section className="skills-hero">
           <div className="skills-hero-content">
             <span className="skills-hero-badge">
-              노무원큐 lab · Claude Code 스킬 패키지
+              엘비즈파트너스 · AI 컨설팅 키트
             </span>
-            <h1>Claude Code 스킬 패키지</h1>
+            <h1>lbiz-ai-kit — 엘비즈 AI 컨설팅 키트</h1>
             <p>
-              한국 노무 도메인의 계산·판정·검토 작업을
+              한국 비즈니스 도메인(노무·세무·법무·경영)의 계산·판정·검토를
               <br />
               Claude가 정확하게 수행하도록 훈련된 11개 스킬 모음입니다.
             </p>
@@ -649,7 +648,7 @@ export default function SkillsPage() {
         {/* Skill Cards */}
         <section className="skills-grid-section">
           <h2 className="skills-grid-title">
-            11개 스킬 카탈로그 (메타 1 + 계산 10)
+            11개 스킬 카탈로그 (메타 1 · 노무 9 · 세무 1)
           </h2>
           <p className="skills-grid-subtitle">
             키워드를 포함한 질문을 입력하면 해당 스킬이 자동으로 활성화됩니다.
@@ -763,7 +762,7 @@ export default function SkillsPage() {
             확인하세요.
           </p>
           <a
-            href="https://github.com/sang-su0916/nomu-oneQ-skill.V"
+            href="https://github.com/sang-su0916/lbiz-ai-kit"
             target="_blank"
             rel="noopener noreferrer"
             className="skills-cta-link"
@@ -777,7 +776,7 @@ export default function SkillsPage() {
             >
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
             </svg>
-            sang-su0916/nomu-oneQ-skill.V
+            sang-su0916/lbiz-ai-kit
           </a>
         </div>
       </div>
